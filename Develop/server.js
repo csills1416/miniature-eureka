@@ -30,3 +30,11 @@ app.post('/api/notes', (req, res) => {
     writeNotesToFile(notes);
     res.json(notes);
 });
+
+app.delete('/api/notes/:id', (req, res) => {
+    const notes = req.params.id;
+    let notes = readNotesFromFile();
+    notes = notes.filter(note => note.id!== notes);
+    writeNotesToFile(notes);
+    res.json({message: 'Note deleted'});});
+
