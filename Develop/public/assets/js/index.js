@@ -178,6 +178,16 @@ if (window.location.pathname === '/notes') {
   newNoteBtn.addEventListener('click', handleNewNoteView);
   noteTitle.addEventListener('keyup', handleRenderSaveBtn);
   noteText.addEventListener('keyup', handleRenderSaveBtn);
+  noteTitle.addEventListener('keyup', handleRenderSaveIcon);
+  note.addEventListener('keyup', handleRenderSaveIcon);
 }
+
+const handleRenderSaveIcon = () => {
+  if(!noteTitle.value.trim() || !noteText.value.trim()) {
+    hide(saveNoteBtn);
+  } else {
+    show(saveNoteBtn);
+  }
+};
 
 getAndRenderNotes();
