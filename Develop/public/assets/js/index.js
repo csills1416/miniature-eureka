@@ -99,6 +99,8 @@ const handleNoteDelete = (e) => {
 const handleNoteView = (e) => {
   e.preventDefault();
   activeNote = JSON.parse(e.target.parentElement.getAttribute('data-note'));
+  noteTitle.value = activeNote.title;
+  noteText.value = activeNote.text;
   renderActiveNote();
 };
 
@@ -185,5 +187,8 @@ if (window.location.pathname === '/notes') {
   noteTitle.addEventListener('keyup', handleRenderSaveBtn);
   noteText.addEventListener('keyup', handleRenderSaveBtn);
 }
+
+//Display's notes when the user clicks on the side bar
+
 
 getAndRenderNotes();
