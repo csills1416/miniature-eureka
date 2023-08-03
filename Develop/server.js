@@ -32,9 +32,22 @@ app.post('/api/notes', (req, res) => {
 });
 
 app.delete('/api/notes/:id', (req, res) => {
-    const notes = req.params.id;
+    const noteId = req.params.id;
     let notes = readNotesFromFile();
-    notes = notes.filter(note => note.id!== notes);
+    notes = notes.filter((note) => note.id !== noteId);
     writeNotesToFile(notes);
-    res.json({message: 'Note deleted'});});
+    res.json({ message: 'Note deleted successfully.' });
+  });
+  
+  
+app.get('/notes', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/notes.html'));
+});
 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/index.html'));
+});
+
+app.listen(PORT, () => {
+    console.log(`Server listening on http://localhost:${PORT}`);
+  });
