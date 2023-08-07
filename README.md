@@ -1,7 +1,5 @@
 # Note Taker Starter Code
 
-# Note Taker
-
 Note Taker is a simple web application that allows users to write and save notes. It provides an easy way to organize thoughts and keep track of tasks that need to be completed.
 
 ![Note Taker Screenshot](./screenshot.png)
